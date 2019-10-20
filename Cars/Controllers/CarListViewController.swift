@@ -12,7 +12,6 @@ import SwipeCellKit
 
 class CarListViewController: UITableViewController {
 
-    //var itemArray = ["Volkswagen Käfer", "Nissan Micra", "Mini Cooper"]
     var itemArray = [CarItem]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

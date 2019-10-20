@@ -117,6 +117,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CarBodyType" destination="VPw-WT-9SP" id="ys8-1G-4N4"/>
+                        <outlet property="CarManufacturer" destination="ql1-e7-6YX" id="JJs-m7-jGU"/>
+                        <outlet property="CarModel" destination="F2A-no-NVp" id="naW-ZA-Uip"/>
+                        <outlet property="CarYear" destination="3Be-Hq-p3v" id="NmE-7d-SjU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJa-9z-Av9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,11 @@ import CoreData
 
 class CarViewController: UIViewController {
     
+    @IBOutlet weak var CarModel: UITextField!
+    @IBOutlet weak var CarBodyType: UITextField!
+    @IBOutlet weak var CarManufacturer: UITextField!
+    @IBOutlet weak var CarYear: UIDatePicker!
+    
     var itemArray = [CarItem]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -21,45 +26,31 @@ class CarViewController: UIViewController {
         
     }
     
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        let newItem = CarItem()
-        let textField = UITextField()
-        let model = textField.text
-        newItem.setValue(model, forKey: "model")
-        //newItem.done = false
-        
-        itemArray.append(newItem)
-            
-        self.saveItem()
-    }
-    
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        // save something
+        let newItem = CarItem(context: context)
+
+        let model = CarModel.text
+        let bodyType = CarBodyType.text
+        let manufacturer = CarManufacturer.text
+        let year = CarYear.date
+        
+        newItem.setValue(model, forKey: "model")
+        newItem.setValue(bodyType, forKey: "bodyType")
+        newItem.setValue(manufacturer, forKey: "manufacturer")
+        newItem.setValue(year, forKey: "year")
+        
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+        itemArray.append(newItem)
+            
+        self.saveItem()
         self.dismiss(animated: true, completion: nil)
     }
-        
-        //self.itemArray.append(textField.text!)
-        
-        //self.defaults.set(self.itemArray, forKey: "CarsList")
-        
-        //self.tableView.reloadData()
-        
-    //}
-            
-    //alert.addTextField{(alertTextField) in
-      //  alertTextField.placeholder = "Create New Car"
-        //textField = alertTextField
-    //}
-    
-    //alert.addAction(action)
-    
-    //present(alert, animated: true, completion: nil)
-    
     
     func saveItem() {
         do{
