@@ -20,10 +20,9 @@ class CarListViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //loadItems()
-        //if let items = defaults.array(forKey: "CarsList") as? [String]{
-        //    itemArray = items
-        //}
+        loadItems()
+        
+        tableView.rowHeight = 80.0
         
     }
     
@@ -51,7 +50,7 @@ class CarListViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarItem", for: indexPath) as! SwipeTableViewCell
         
-        //cell.delegate = self
+        cell.delegate = self
         
         let item = itemArray[indexPath.row]
         
@@ -72,42 +71,6 @@ class CarListViewController: UITableViewController {
     }*/
     
     
-    //Adding Item
-    
-    /*@IBAction func addButtonPressed(_ sender: UIBarButtonItem){
-        
-        var textField = UITextField()
-        
-        let alert = UIAlertController(title: "Add New Car", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            
-            let newItem = CarItem(context: self.context)
-            newItem.model = textField.text!
-            //newItem.done = false
-            self.itemArray.append(newItem)
-            
-            self.saveItem()
-            
-            
-            //self.itemArray.append(textField.text!)
-            
-            //self.defaults.set(self.itemArray, forKey: "CarsList")
-            
-            //self.tableView.reloadData()
-            
-        }
-                
-        alert.addTextField{(alertTextField) in
-            alertTextField.placeholder = "Create New Car"
-            textField = alertTextField
-        }
-        
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
     
     func saveItem() {
         do{
@@ -127,17 +90,27 @@ class CarListViewController: UITableViewController {
             print("fetching error")
         }
         
-    }*/
-
+    }
 
 }
 
 //Swipe Cell Delegate Methods
-/*extension CategoryViewController: SwipeTableViewCellDelegate{
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        options.transitionStyle = .border
-        return options
+extension CarListViewController: SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            
+            self.context.delete(self.itemArray[indexPath.row])
+            self.itemArray.remove(at: indexPath.row)
+            
+            self.saveItem()
+            
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete-icon")
+
+        return [deleteAction]
     }
-}*/
+}
