@@ -26,11 +26,6 @@ class CarViewController: UIViewController {
         
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         let newItem = CarItem(context: context)
 
@@ -49,7 +44,7 @@ class CarViewController: UIViewController {
         itemArray.append(newItem)
             
         self.saveItem()
-        self.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func saveItem() {

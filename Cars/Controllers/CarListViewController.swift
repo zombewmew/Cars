@@ -59,19 +59,6 @@ class CarListViewController: UITableViewController {
         return cell
     }
     
-    //Deleting Item
-    
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        context.delete(itemArray[indexPath.row])
-        itemArray.remove(at: indexPath.row)
-        
-        saveItem()
-        
-    }*/
-    
-    
-    
     func saveItem() {
         do{
             try context.save()
@@ -89,7 +76,7 @@ class CarListViewController: UITableViewController {
         } catch {
             print("fetching error")
         }
-        
+        tableView.reloadData()
     }
 
 }

@@ -23,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="anf-uo-CYx" kind="show" id="lrb-9G-mBl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,7 +37,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zvy-xD-gPq">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <segue destination="ys3-lc-e6c" kind="presentation" id="A9E-HB-z4E"/>
+                                <segue destination="anf-uo-CYx" kind="show" id="yzR-ZJ-zY8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,7 +51,7 @@
             <objects>
                 <viewController id="anf-uo-CYx" customClass="CarViewController" customModule="Cars" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a6w-Td-5DY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrm-FU-Zkb">
@@ -106,11 +109,6 @@
                         <viewLayoutGuide key="safeArea" id="v3R-Hw-jGC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Car" id="6B6-4O-LWn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Nj-rb-cxK">
-                            <connections>
-                                <action selector="cancelButtonTapped:" destination="anf-uo-CYx" id="0cr-6I-3NL"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="9zu-G3-osB">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="anf-uo-CYx" id="Y0L-k6-RLr"/>
@@ -126,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJa-9z-Av9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="94"/>
+            <point key="canvasLocation" x="2505" y="95"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tJt-Io-bHF">
@@ -146,24 +144,8 @@
             </objects>
             <point key="canvasLocation" x="945" y="95"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fOy-IC-XSz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ys3-lc-e6c" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="isT-iM-lw9"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="24q-cY-7Xq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="anf-uo-CYx" kind="relationship" relationship="rootViewController" id="FZC-FE-dXi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S3q-qu-FiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2559.375" y="94.014084507042256"/>
-        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lrb-9G-mBl"/>
+    </inferredMetricsTieBreakers>
 </document>
