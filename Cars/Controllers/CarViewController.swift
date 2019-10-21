@@ -11,18 +11,43 @@ import CoreData
 
 class CarViewController: UIViewController {
     
-    @IBOutlet weak var CarModel: UITextField!
-    @IBOutlet weak var CarBodyType: UITextField!
-    @IBOutlet weak var CarManufacturer: UITextField!
+    @IBOutlet weak var CarModel: UITextField!{
+        didSet{
+            CarModel.text = selectedCar?.model
+        }
+    }
+    @IBOutlet weak var CarBodyType: UITextField!{
+        didSet{
+            CarBodyType.text = selectedCar?.bodyType
+        }
+    }
+    @IBOutlet weak var CarManufacturer: UITextField!{
+        didSet{
+            CarManufacturer.text = selectedCar?.manufacturer
+        }
+    }
     @IBOutlet weak var CarYear: UIDatePicker!
+        {
+        didSet{
+            if ((selectedCar?.year) != nil) {
+                CarYear.date = (selectedCar?.year)!
+            }
+        }
+    }
     
     var itemArray = [CarItem]()
+    
+    var selectedCar : CarItem? {
+        didSet{
+            //loadItem()
+        }
+    }
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        loadItems()
         
     }
     
@@ -53,18 +78,17 @@ class CarViewController: UIViewController {
         } catch {
             print("saving error")
         }
-        
-        //self.tableView.reloadData()
     }
     
-    func loadItems() {
+    
+    func loadItem() {
         let request : NSFetchRequest<CarItem> = CarItem.fetchRequest()
+        
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("fetching error")
         }
-        
     }
     
     

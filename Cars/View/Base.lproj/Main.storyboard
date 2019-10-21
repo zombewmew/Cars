@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="anf-uo-CYx" kind="show" id="lrb-9G-mBl"/>
+                                    <segue destination="anf-uo-CYx" kind="show" identifier="editCar" trigger="accessoryAction" id="6c6-ay-K9U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -37,7 +37,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zvy-xD-gPq">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <segue destination="anf-uo-CYx" kind="show" id="yzR-ZJ-zY8"/>
+                                <segue destination="anf-uo-CYx" kind="show" identifier="" id="yzR-ZJ-zY8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -146,6 +146,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lrb-9G-mBl"/>
+        <segue reference="6c6-ay-K9U"/>
     </inferredMetricsTieBreakers>
 </document>

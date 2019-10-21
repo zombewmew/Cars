@@ -76,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				31A737372354AB4B00A63513 /* Main.storyboard */,
+				31A7373C2354AB4D00A63513 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,7 +108,6 @@
 				31258973235751150079AC54 /* Data Model */,
 				312589752357515D0079AC54 /* View */,
 				31A7373A2354AB4D00A63513 /* Assets.xcassets */,
-				31A7373C2354AB4D00A63513 /* LaunchScreen.storyboard */,
 				31A7373F2354AB4D00A63513 /* Info.plist */,
 			);
 			path = Cars;

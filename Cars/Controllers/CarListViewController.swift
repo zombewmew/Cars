@@ -16,29 +16,31 @@ class CarListViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadItems()
+    }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         loadItems()
         
         tableView.rowHeight = 80.0
-        
     }
     
     //Tableview Delegate Methods
     
-    /*override func tableView(_ tableView: UITableView, didSelectedRowAt indexPath: IndexPath){
-        performSegue(withIdentifier: "", sender: self)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        performSegue(withIdentifier: "editCar", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! CarViewController
+        let destinationViewController = segue.destination as! CarViewController
         
         if let indexPath = tableView.indexPathForSelectedRow{
-            destinationVC.selectedCar = itemArray[indexPath.row]
+            destinationViewController.selectedCar = itemArray[indexPath.row]
         }
-    }*/
+    }
 
     //Tableview Datasource Methods
            
