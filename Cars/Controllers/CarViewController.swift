@@ -52,22 +52,33 @@ class CarViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        let newItem = CarItem(context: context)
-
+       
         let model = CarModel.text
         let bodyType = CarBodyType.text
         let manufacturer = CarManufacturer.text
         let year = CarYear.date
         
-        newItem.setValue(model, forKey: "model")
-        newItem.setValue(bodyType, forKey: "bodyType")
-        newItem.setValue(manufacturer, forKey: "manufacturer")
-        newItem.setValue(year, forKey: "year")
-        
-        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        itemArray.append(newItem)
+        if (selectedCar?.model != nil) {
             
+            selectedCar?.setValue(model, forKey: "model")
+            selectedCar?.setValue(bodyType, forKey: "bodyType")
+            selectedCar?.setValue(manufacturer, forKey: "manufacturer")
+            selectedCar?.setValue(year, forKey: "year")
+            
+        } else {
+            
+            let newItem = CarItem(context: context)
+            
+            newItem.setValue(model, forKey: "model")
+            newItem.setValue(bodyType, forKey: "bodyType")
+            newItem.setValue(manufacturer, forKey: "manufacturer")
+            newItem.setValue(year, forKey: "year")
+            
+            //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+            
+            itemArray.append(newItem)
+            
+        }
         self.saveItem()
         _ = navigationController?.popViewController(animated: true)
     }
